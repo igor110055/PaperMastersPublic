@@ -1,0 +1,16 @@
+services:
+  pmsite:
+    image: "node:14.18.2"
+    container_name: pmsite
+    restart: always
+    build:
+      context: ./dapp
+      dockerfile: Dockerfile
+    command: npm run serve
+    ports:
+      - "8675:3000"
+    networks:
+      - custom
+networks:
+  custom:
+    driver: bridge
